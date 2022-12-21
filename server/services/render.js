@@ -5,7 +5,7 @@ exports.homeRoutes = (req, res) => {
     // Make a get request to /api/users
     // axios.get('http://localhost:3000/api/users')
     axios
-        .get(`${REACT_APP_BACKEND_URL}/api/users`)
+        .get(`${REACT_APP_BACKEND_URL}/users`)
         .then(function (response) {
             res.render("index", { users: response.data });
         })
