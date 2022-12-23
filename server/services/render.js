@@ -1,13 +1,13 @@
 const axios = require("axios");
 
-// const { MONGO_URI } = process.env;
+const BASE_URL = process.env.BASE_URL
+    ? process.env.BASE_URL
+    : "http://localhost:3000";
 
 exports.homeRoutes = (req, res) => {
     // Make a get request to /api/users
     axios
-        .get("https://class.up.railway.app/api/users")
-        // axios
-        // .get(`${https://class.up.railway.app/}/api/users`)
+        .get(`${BASE_URL}/api/users`)
         .then(function (response) {
             res.render("index", { users: response.data });
         })
@@ -22,7 +22,7 @@ exports.add_user = (req, res) => {
 
 exports.update_user = (req, res) => {
     axios
-        .get("https://class.up.railway.app/api/users", {
+        .get(`${BASE_URL}/api/users`, {
             params: { id: req.query.id },
         })
         .then(function (userdata) {
