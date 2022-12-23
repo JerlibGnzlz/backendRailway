@@ -4,9 +4,10 @@ const { MONGO_URI } = process.env;
 
 exports.homeRoutes = (req, res) => {
     // Make a get request to /api/users
-    // axios.get('http://localhost:3000/api/users')
     axios
-        .get(`${MONGO_URI}/api/users`)
+        .get("http://localhost:3000/api/users")
+        // axios
+        // .get(`${MONGO_URI}/api/users`)
         .then(function (response) {
             res.render("index", { users: response.data });
         })
